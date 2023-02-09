@@ -135,13 +135,11 @@
                         I'm Liyakat Ahmed Patel. A Solutions Architect with 20 years of experience working in the IT
                         industry.
                         On my way to becoming an AWS Certified Solutions Architect Associate, I was also an IT Manager.
-                        Work directly with business partners to identify requirements and create technical solutions to
+                        Have work directly with business partners to identify requirements and create technical solutions to
                         satisfy those requirements.
                         Building solutions that are resilient, scalable and fault tolerant towards an enterprise goal.
-                        Designing the overall Virtual Private Cloud (VPC) environment including ELB, Server instances,
-                        Security groups, Storage, Subnets, MySQL DB in high availability zones.
                         Proven success in multi-tasking, generating creative ideas, organizing,
-                        and finalizing projects with limited resources.
+                        and finalizing projects adopting Agile methodology.
                     </p>
 
                     <p>
@@ -609,11 +607,52 @@
                         </h5>
                         <br>
                         <p>
-                            Built a website with a custom domain with good security posture from the ground up, 
-                            deployed to AWS.
+                            Built a website with a custom domain with good security posture from the ground up, deployed to AWS.
                             <br>
                             You're looking at it.
                         </p>
+                        <hr color="#39B0AB">    
+                    </div>
+
+                    <div class="column lg-12 tab-12" data-animate-el>
+                        <h5>Cloud SoftSwitch (Class type 4 & 5)</h5>
+                        <h7>Calling cards, Mobile dialer, Residential phone, Wholesale VoIP, Virtual Number.</h7>
+                    </div>
+
+                    <div class="column lg-12" data-animate-el>
+                        <h5>3 Tier Architecture</h5>
+                        <ul class="disc">
+                            <li>Web Tier contains NLB listening on TCP_UDP, distributing traffic to Multi-AZ EC2 in Private NAT subnets. 
+                            <li>A NAT instance in Public subnet for App Tier instances & RDS (MySQL) for OS updates etc and also acts as a Bastion Server.</li>
+                            <li>App Tier contains, SoftSwitch EC2 instances created with Golden AMI running in Private NAT subnet associated with an ASG with Security group (Allow inbound from SG of NLB).</li>
+                            <li>DB Tier contains Multi-AZ RDS (MySQL) in Private subnet, Storage with Autoscaling, Automated Backups & Encryption with Security group (Allow inbound from SG of App Tier EC2 instances).</li>
+                        </ul>
+                        <hr color="#39B0AB">    
+                    </div>
+
+                    <div class="column lg-12 tab-12" data-animate-el>
+                        <h5>Cloud Call Centre Solution (Omnichannel: Call, Live chat, Email)</h5>
+                    </div>
+
+                    <div class="column lg-12" data-animate-el>
+                        <ul class="disc">
+                            <li>Inbound call center for Support, Billing & Sales queries.</li>
+                            <li>Outbound call center for Sales – Manual dialing, Predictive dialing & Broadcast.</li>
+                            <li>IVR Campaigns.</li>
+                        </ul>    
+                    </div>
+
+                    <div class="column lg-12" data-animate-el>
+                        <h5>3 Tier Architecture</h5>
+                        <ul class="disc">
+                            <li>Web Tier contains Internet facing NLB listening on TCP_UDP & an ALB listening on HTTPS, both distributing traffic to Multi-AZ EC2 in Private NAT subnets.</li>
+                            <li>Route 53 to host the custom domain, pointing to Web server application fronted by ALB along with SSL/TLS certificate from Certificate Manager (ACM) for this custom domain.</li>
+                            <li>A NAT instance in Public subnet for App Tier instances & RDS (MySQL) in Private subnet for OS updates etc and also acts as a Bastion Server.</li>
+                            <li>App Tier contains, Web server EC2 instances created with Golden AMI running in Private NAT subnet associated with an ASG with Security group (Allow inbound from SG of NLB & ALB).</li>
+                            <li>App Tier also contains, Dialer server EC2 instances created with Golden AMI running in Private NAT subnet associated with an ASG with security group (Allow inbound from SG of Web server).</li>
+                            <li>DB Tier contains Multi-AZ RDS (MySQL) in Private subnet, Storage with Autoscaling, Automated Backups & Encryption with Security group (Allow inbound from SG of Web Server & Dialer Server).</li>
+                        </ul>
+                        <hr color="#39B0AB">    
                     </div>
 
                     <div class="column lg-12 tab-12" data-animate-el>

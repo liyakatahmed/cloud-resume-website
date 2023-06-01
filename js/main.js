@@ -6,38 +6,25 @@
 
 //Visitor Counter
 
-// Define the URL of the API gateway
-    const apiGatewayUrl = "https://cdyceev3v7.execute-api.us-east-1.amazonaws.com/prod/counter";
+const produrl = new URL('https://cdyceev3v7.execute-api.us-east-1.amazonaws.com/prod/counter', window.location.origin).href;
 
-    // Function to increment the visitor count and trigger the API gateway
-    function incrementVisitorCount() {
-        // Make a POST request to the API gateway
-        fetch(apiGatewayUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({}),
-        })
-        .then(response => {
-            if (response.ok) {
-            console.log("Visitor count updated successfully!");
-            return response.json();
-            } else {
-            console.error("Failed to update visitor count:", response.status);
-            }
-        })
-        .then(data => {
-            // Update the visitor count on the webpage
-            document.getElementById("visitor-count").textContent = data.count;
-        })
-        .catch(error => {
-            console.error("Error updating visitor count:", error);
-        });
-    }
+var requestOptions = {
+    method: 'POST',
+    redirect: 'follow'
+  };
+  
+var count = 0;
+const visitorcounter = document.querySelector(".stats__count");
+  
+fetch(produrl, requestOptions)
+    .then(response => response.text())
+    .then(result => count = result)
+    .then(count => visitorcounter.setAttribute("data-counter", count))
+    .catch(error => console.log('error', error));
 
-    // Call the function to increment the visitor count and trigger the API gateway
-    incrementVisitorCount();
+(function(html) {
+
+    'use strict';
 
 
    /* animations

@@ -6,7 +6,7 @@
 
 //Visitor Counter
 
-const produrl = new URL('https://cdyceev3v7.execute-api.us-east-1.amazonaws.com/prod/counter', window.location.origin).href;
+const produrl = new URL('prod', window.location.origin).href;
 
 var requestOptions = {
     method: 'POST',

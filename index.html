@@ -177,6 +177,9 @@
                             for this custom domain name.</li>
                         <li>AWS Route 53 routes the incoming traffic to AWS CloudFront, thereby serving the cloud resume website from the
                             nearest cached Edge location.</li>
+                        <li>The site includes a counter below that uses a Javascript fetch request to display how many people have visited the site.</li>
+                        <li>The site sends requests to a DynamoDB database through an API gateway to update and retreive the counter data.</li>
+                        <li>The API gateway uses an integrated Lambda function written in Python to manipulate the data in the database.</li>
                         <li>The project is deployed and managed following a CI/CD pipeline using AWS CodePipeline and GitHub.</li>
                     </ul>
                 </div>
@@ -186,10 +189,10 @@
                 </div>
             </div> <!-- end row -->
             
-        <!--    
+           
             <div class="row about-stats stats block-lg-one-half block-md-one-half block-mob-whole" data-animate-block>
                 <div class="column stats__item" data-animate-el>
-                    <div class="stats__count u-pull-right" data-counter=0><span>ERROR</span></div>
+                    <div class="stats__count u-pull-right" views=0><span>ERROR</span></div>
                 </div>
             
                 
@@ -201,7 +204,7 @@
                 </div>
             
             </div>
-        -->
+        
         
         </section>
 

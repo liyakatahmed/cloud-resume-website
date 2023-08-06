@@ -1,12 +1,7 @@
-/* ===================================================================
- * Tyndale 1.0.0 - Main JS
- *
- * ------------------------------------------------------------------- */
-
 
 //Visitor Counter
 
-/*
+
 const produrl = new URL('prod', window.location.origin).href;
 
 var requestOptions = {
@@ -22,21 +17,6 @@ fetch(produrl, requestOptions)
     .then(result => count = result)
     .then(count => visitor_counter.setAttribute("views", count))
     .catch(error => console.log('error', error));
-
-(function(html) {
-
-    'use strict';
-* -------------------------------------------------------------------- */
-
-
-const counter = document.querySelector(".stats__count");
-async function updateCounter() {
-    let response = await fetch("https://q5kguzoi336cpowhbvbaac6tle0yeqbj.lambda-url.us-east-1.on.aws/");
-    let data = await response.json();
-    counter.innerHTML = data;
-}
-
-updateCounter();
 
 (function(html) {
 

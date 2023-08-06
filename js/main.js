@@ -10,12 +10,12 @@ var requestOptions = {
   };
   
 var count = 0;
-const visitor_counter = document.querySelector(".stats__count");
+const visitorcounter = document.querySelector(".stats__count");
   
 fetch(produrl, requestOptions)
     .then(response => response.text())
     .then(result => count = result)
-    .then(count => visitor_counter.setAttribute("views", count))
+    .then(count => visitorcounter.setAttribute("data-counter", count))
     .catch(error => console.log('error', error));
 
 (function(html) {

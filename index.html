@@ -452,10 +452,14 @@
                     <ul class="disc">
                         <li>VPC, EC2, ELB, ASG, S3, IAM</li>
                         <li>RDS (MySQL), NoSQL (DynamoDB)</li>
-                        <li>CloudFront, Route 53, ACM</li>
+                        <li>Route 53, CloudFront, ACM</li>
+                        <li>API Gateway, Lambda</li>
                         <li>ECS, EKS</li>
-                        <li>Amazon Connect & more</li>
-                        <li>Knowledge of AWS MGN (Migration)</li>
+                        <li>Amazon Connect</li>
+                        <li>Elastic Beanstalk</li>
+                        <li>ElastiCache (Redis & Memcached)</li>
+                        <li>Elastic File System (EFS)</li>
+                        <li>Knowledge of AWS MGN (Migration) and more...</li>
                     </ul>
                 </div>
 
@@ -480,10 +484,11 @@
                     <ul class="disc">
                         <li>Version Control: Git, GitHub, GitLab</li>
                         <li>CI: Jenkins</li>
-                        <li>Build: Maven</li>
                         <li>Code Test: SonarQube</li>
+                        <li>Security: Trivy</li>
                         <li>Artifactory: Nexus, JFrog</li>
                         <li>CD: Docker, Kubernetes</li>
+                        <li>GitOps: ArgoCD</li>
                         <li>Monitor: Prometheus, Grafana</li>
                     </ul>
                 </div>
@@ -664,7 +669,7 @@
                         <h5>3 Tier Architecture</h5>
                         <ul class="disc">
                             <li>Web Tier contains NLB listening on TCP_UDP, distributing traffic to Multi-AZ EC2 in Private NAT subnets. 
-                            <li>A NAT instance in Public subnet for App Tier instances & RDS (MySQL) for OS updates etc and also acts as a Bastion Server.</li>
+                            <li>A NAT instance in Public subnet for App Tier instances & RDS (MySQL) for OS updates, patching etc. and also acts as a Bastion Server.</li>
                             <li>App Tier contains, SoftSwitch EC2 instances created with Golden AMI running in Private NAT subnet associated with an ASG with Security group (Allow inbound from SG of NLB).</li>
                             <li>DB Tier contains Multi-AZ RDS (MySQL) in Private subnet, Storage with Autoscaling, Automated Backups & Encryption with Security group (Allow inbound from SG of App Tier EC2 instances).</li>
                         </ul>
@@ -680,6 +685,7 @@
                             <li>Inbound call center for Support, Billing & Sales queries.</li>
                             <li>Outbound call center for Sales – Manual dialing, Predictive dialing & Broadcast.</li>
                             <li>IVR Campaigns.</li>
+                            <li>Integration with various CRM tools.</li>
                         </ul>    
                     </div>
 
@@ -689,13 +695,33 @@
                             <li>Web Tier contains Internet facing NLB listening on TCP_UDP & an ALB listening on HTTPS, both distributing traffic to Multi-AZ EC2 in Private NAT subnets.</li>
                             <li>Route 53 to host the custom domain, pointing to Web server application fronted by ALB along with SSL/TLS certificate from Certificate Manager (ACM) for this custom domain.</li>
                             <li>A NAT instance in Public subnet for App Tier instances & RDS (MySQL) in Private subnet for OS updates etc and also acts as a Bastion Server.</li>
-                            <li>App Tier contains, Web server EC2 instances created with Golden AMI running in Private NAT subnet associated with an ASG with Security group (Allow inbound from SG of NLB & ALB).</li>
-                            <li>App Tier also contains, Dialer server EC2 instances created with Golden AMI running in Private NAT subnet associated with an ASG with security group (Allow inbound from SG of Web server).</li>
+                            <li>App Tiercontains, Web app & Dialer appEC2 instances created with Golden AMIin Private subnetassociated with an ASGwith Security group (Allow inbound from SG of NLB & ALB).</li>
                             <li>DB Tier contains Multi-AZ RDS (MySQL) in Private subnet, Storage with Autoscaling, Automated Backups & Encryption with Security group (Allow inbound from SG of Web Server & Dialer Server).</li>
                         </ul>
                         <hr color="#39B0AB">    
                     </div>
 
+                    <div class="column lg-12 tab-12" data-animate-el>
+                        <h5>Cloud E-Commerce platform</h5>
+                    </div>
+
+                    <div class="column lg-12" data-animate-el>
+                        <h5>3 Tier Architecture</h5>
+                        <ul class="disc">
+                            <li>Web Tiercontains Internet facing ALBlistening on HTTPS, distributing traffic to Multi-AZ EC2webservers in Private subnets.</li>
+                            <li>Route 53 to host custom domain, uses SSL/TLS certificate issued from Certificate Manager (ACM) for this custom domain, points to Cloudfront (CDN) distribution with ALB as an origin server.</li>
+                            <li>A NAT instancecreated in Public subnet for App Tier instances & RDS (MySQL) in Private subnet
+                                for OS updates, patches etc. and also acts as a Bastion Server.</li>
+                            <li>App Tieruses Elastic Beanstalk to deploy thee-commerce websiteon EC2 instances in Private subnetassociated with an ASGwith Security group (Allow inbound from SG of ALB).</li>
+                            <li>ElastiCache Redis forcaching the e-commerce website in the Private subnets.</li>
+                            <li>EFSis used as a shared file system among the ASG EC2 instances in the Private subnets.</li>
+                            <li>S3 is used to storing e-commerce website files, media & access logs.</li>
+                            <li>DB Tier contains Multi-AZ RDS (MySQL)in Private subnet, Storage with Autoscaling, Automated Backups & Encryption with Security group (Allow inbound from SG of App Tier ASG EC2 instances).</li>
+                            <li>CloudWatchis used for monitoring -metrics, alerts, alarms and CloudTrail for API activity & audit.</li>
+                        </ul>
+                        <hr color="#39B0AB">    
+                    </div>
+                    
                     <div class="column lg-12 tab-12" data-animate-el>
                         <h5>Cloud Web hosting Control Panel</h5>
                     </div>

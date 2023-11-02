@@ -708,16 +708,15 @@
                     <div class="column lg-12" data-animate-el>
                         <h5>3 Tier Architecture</h5>
                         <ul class="disc">
-                            <li>Web Tiercontains Internet facing ALBlistening on HTTPS, distributing traffic to Multi-AZ EC2webservers in Private subnets.</li>
+                            <li>Web Tier contains Internet facing ALB listening on HTTPS, distributing traffic to Multi-AZ EC2 webservers in Private subnets.</li>
                             <li>Route 53 to host custom domain, uses SSL/TLS certificate issued from Certificate Manager (ACM) for this custom domain, points to Cloudfront (CDN) distribution with ALB as an origin server.</li>
-                            <li>A NAT instancecreated in Public subnet for App Tier instances & RDS (MySQL) in Private subnet
-                                for OS updates, patches etc. and also acts as a Bastion Server.</li>
-                            <li>App Tieruses Elastic Beanstalk to deploy thee-commerce websiteon EC2 instances in Private subnetassociated with an ASGwith Security group (Allow inbound from SG of ALB).</li>
-                            <li>ElastiCache Redis forcaching the e-commerce website in the Private subnets.</li>
-                            <li>EFSis used as a shared file system among the ASG EC2 instances in the Private subnets.</li>
+                            <li>A NAT instance created in Public subnet for App Tier instances & RDS (MySQL) in Private subnet for OS updates, patches etc. and also acts as a Bastion Server.</li>
+                            <li>App Tier uses Elastic Beanstalk to deploy the e-commerce website on EC2 instances in Private subnet associated with an ASG with Security group (Allow inbound from SG of ALB).</li>
+                            <li>ElastiCache Redis for caching the e-commerce website in the Private subnets.</li>
+                            <li>EFS is used as a shared file system among the ASG EC2 instances in the Private subnets.</li>
                             <li>S3 is used to storing e-commerce website files, media & access logs.</li>
-                            <li>DB Tier contains Multi-AZ RDS (MySQL)in Private subnet, Storage with Autoscaling, Automated Backups & Encryption with Security group (Allow inbound from SG of App Tier ASG EC2 instances).</li>
-                            <li>CloudWatchis used for monitoring -metrics, alerts, alarms and CloudTrail for API activity & audit.</li>
+                            <li>DB Tier contains Multi-AZ RDS (MySQL) in Private subnet, Storage with Autoscaling, Automated Backups & Encryption with Security group (Allow inbound from SG of App Tier ASG EC2 instances).</li>
+                            <li>CloudWatch is used for monitoring - metrics, alerts, alarms and CloudTrail for API activity & audit.</li>
                         </ul>
                         <hr color="#39B0AB">    
                     </div>
